@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Invoice Bill</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css" media="screen">
+		.box
+		{
+			width: 100%;
+			height:auto;
+			border: 1px solid white;
+			margin: 0px auto;
+			background-color: peachpuff;
+			outline: 15px groove #0a6e71;
+			outline-offset:6px;
+		}
+		table th,td
+		{
+			border: 1px solid black;
+		}
+		table
+		{
+			border-collapse: collapse;
+		}
+		.title
+		{
+			width: 100%;
+		}
+		.div1
+		{
+			width: 40%;
+			float: left;
+		}
+		.div2
+		{
+			width: 60%;
+			text-align: right;
+			float: left;
+		}
+		.clear
+		{
+			clear: both;
+		}
+		.btn
+		{
+			width: auto;
+			height: 30px;
+			background-color:#0eabab;
+			border: none;
+			cursor: pointer;
+			margin-left: 30px;
+			font-weight: bold;
+			font-size: 20px;
+			border-radius: 3px;
+			margin-top: 20px;
+
+		}
+		.title2
+		{
+			padding-right: 80px;
+			color: purple;
+		}
+		input[type="text"]
+		{
+			border:2px solid #0a6e71;
+
+		}
+		.font_big
+		{
+			font-size: 20px;
+			background-color: #0a6e71;
+			color: white;
+		}
+		
+
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div class="title">
+			<div class="div1">
+				<h1 style="padding-left: 30px;color: purple">zeel_vidhi_creation</h1>
+				<address style="padding-left: 30px;color: cadetblue;font-weight: bolder;">
+					202, 2nd Floor, Devrath Appartment,
+					Nr. Doon School , Jayhind Cross Road,
+					Maninagar.A'bad-08
+				</address>
+			</div>
+			<div class="div2">
+				<h2 class="title2">INVOICE</h2>
+				<h4 class="title2">Date: 6/11/2019</h4>
+				<h4 class="title2">INVOICE NO:1307</h4>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="pro">
+			<br><br>
+			<table width="100%" id="tbl_inv">
+				
+				<thead>
+					<tr>
+						<th class="font_big">No.</th>
+						<th class="font_big">Product Name</th>
+						<th class="font_big">Price</th>
+						<th class="font_big">Qty</th>
+						<th class="font_big">Discount(%)</th>
+						<th class="font_big">Total</th>
+						<th class="font_big">SubTot=[Price*Qty]</th>
+						<th class="font_big">Discount(Rs.)</th>
+						<th class="font_big">Reset Values</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td><input type="text" class="pro_name"></td>
+						<td><input type="text" class="price"></td>
+						<td><input type="text" class="qty"></td>
+						<td><input type="text" class="dic"></td>
+						<td><input type="text" class="total"></td>
+
+						<td><input type="text" class="stot" disabled></td>
+						<td><input type="text" class="sdis" disabled></td>
+						<td><input type="button" value="-" style="width: 40px;font-size: 20px" class="reset_btn btn"></td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td><input type="text" class="pro_name"></td>
+						<td><input type="text" class="price"></td>
+						<td><input type="text" class="qty"></td>
+						<td><input type="text" class="dic"></td>
+						<td><input type="text" class="total" ></td>
+
+						<td><input type="text" class="stot" disabled></td>
+						<td><input type="text" class="sdis" disabled></td>
+						<td><input type="button" value="-" style="width: 40px;font-size: 20px" class="reset_btn btn"></td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td><input type="text" class="pro_name"></td>
+						<td><input type="text" class="price"></td>
+						<td><input type="text" class="qty" ></td>
+						<td><input type="text" class="dic" ></td>
+						<td><input type="text" class="total"></td>
+
+						<td><input type="text" class="stot" disabled></td>
+						<td><input type="text" class="sdis" disabled></td>
+						<td><input type="button" value="-" style="width: 40px;font-size: 20px" class="reset_btn btn"></td>
+					</tr>
+				</tbody>
+				<tfoot>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><b style="color: navy">Subtotal</b></td>
+						<td><input type="text" id="sub_total"></td>
+						<td rowspan="3"><button type="button" class="btn" id="add_pro">+</button></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><b style="color: navy">Total Discount(Rs.)</b></td>
+						<td><input type="text" id="discount"></td>
+						 
+					</tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td></td>
+						<td><b style="color: navy">Grand Total</b></td>
+						<td><input type="text" id="grand_total"></td>
+					</tr>
+					
+				</tfoot>
+			</table>
+
+		</div>
+
+
+		
+</div>
+	
+	
+	
+
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$(document).on("click","#add_pro",function(e){
+				/*var tr_new = $("#tbl_inv tbody tr:first").clone();
+				$("#tbl_inv tbody tr:last").find('.price').val('');
+				$("#tbl_inv tbody tr:last").find('.qty').val('');
+				$("#tbl_inv tbody tr:last").find('.dic').val('');
+				$("#tbl_inv tbody tr:last").find('.total').val('');*/
+				var tr_new="<tr> <td>4</td> <td><input type='text'/></td> <td><input type='text' class='price'/></td> <td><input type='text' class='qty'/></td> <td><input type='text' class='dic'/></td> <td><input type='text' class='total'/></td> <td> <input type='text' class='stot' disabled></td> <td><input type='text' class='sdis' disabled></td> <td><input type='button' value='-' style='width: 40px;font-size: 20px' class='reset_btn btn'></td></tr>";
+
+				$("#tbl_inv tbody:last").append(tr_new);
+				
+			});
+
+			$(document).on('click', '.reset_btn', function(event) {
+				//event.preventDefault();
+				
+				
+				var tr = $(this).parents('tr'); 
+				
+				tr.remove();
+				
+				calculate_total(); //call function over here to subtract the deleted row's number from the total
+			});
+
+			$(document).on("keyup",".price, .qty, .dic",function(e){
+				
+				var tr = $(this).parents('tr');  //select particular tr
+				var price = tr.find('.price').val();
+				var qty = tr.find('.qty').val();
+				var dic=tr.find('.dic').val();
+				var s_tot=tr.find('.stot').val();
+				var s_dis=tr.find('.sdis').val();
+
+				var di1=(dic/100);
+
+				var s_tot=(price*qty);
+				tr.find(".stot").val(s_tot);
+
+				var s_dis=s_tot*di1;
+				tr.find(".sdis").val(s_dis);
+
+				var total_1=s_tot-s_dis;
+				tr.find(".total").val(total_1);
+
+
+				calculate_total(); //call function over here to calculate all the subtotals and discounts 	
+				
+			});
+});
+
+function calculate_total (argument) {
+	// body... 
+		var subTotal=0;
+		var tot_dis=0;
+					$(".stot").each(function() {  //for each loop for sum of individual total 
+							subTotal=subTotal+Number($(this).val());
+						
+					});
+						$("#sub_total").val(subTotal);
+
+					$(".sdis").each(function() {   //for each loop for sum of individual discount
+							tot_dis=tot_dis+Number($(this).val());
+						 
+					});	
+						$("#discount").val(tot_dis);
+
+						var g_total=subTotal-tot_dis;
+						$("#grand_total").val(g_total);
+
+}
+			
+
+		
+	</script>
+</body>
+</html>

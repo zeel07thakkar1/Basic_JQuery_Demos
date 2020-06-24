@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Menus</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		.mymenu
+		{
+			width: 1024px;
+			height: auto;
+			margin: 0px auto;
+		}
+		.menu li
+		{
+			list-style-type: none;
+			float: left;
+			background-color: #654465d9;
+			width: 162px;
+			height: 50px;
+			border: 1px solid white;
+			color: white;
+			text-align: center;
+			line-height: 50px;
+			font-weight: bold;
+			cursor: pointer;
+
+		}
+		.submenu
+		{
+			margin-left: -41px;
+			display: none;
+		}
+		
+	</style>
+</head>
+<body>
+	<div class="mymenu">
+	<ul class="menu">
+		<li>Home</li>
+		<li>About Us</li>
+		<li>Blog</li>
+		<li>
+			<span class="caret">Products</span>
+				<ul class="submenu">
+					<li>Item1</li>
+					<li>Item2</li>
+					<li>Item3</li>
+					<li>Item4</li>
+				</ul>
+		</li>
+
+		<li>Servicies</li>
+		<li>Contact Us</li>
+	</ul>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$("span").click(function(event) {
+				/* Act on the event */
+				$(".submenu").fadeToggle('slow');
+
+			});
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Slider</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		.big_img
+		{
+			width: 700px;
+			height: 300px;
+			
+			margin: 0px auto;
+			box-shadow: 10px 10px 10px #6f9fb5;
+		}
+		.circle
+		{
+			height: 20px;
+			width: 20px;
+			background-color: gray;
+			float: left;
+			border-radius: 14px;
+			margin-left: 10px;
+			cursor: pointer;
+		}
+
+
+		.indicators
+		{
+			margin: 0px auto;
+			width:130px;
+			margin-top: 50px;
+			height:20px;
+
+		}
+	</style>
+</head>
+<body>
+	<div class="big_img">
+		<img src="images/html.jpg" width="100%" height="300px" class="img">
+	</div>
+	<div class="indicators">
+		<span class="circle" id="c1"></span>
+		<span class="circle" id="c2"></span>
+		<span class="circle" id="c3"></span>
+		<span class="circle" id="c4"></span>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$("#c1").hover(function() {
+				/* Stuff to do when the mouse enters the element */
+					$(".img").attr('src', 'images/html.jpg');
+					$("#c1").css('background-color', 'blue');
+					
+
+			}, function() {
+				/* Stuff to do when the mouse leaves the element */
+				$("#c1").css('background-color', 'gray');
+				$("#c2").css('background-color', 'gray');
+				$("#c3").css('background-color', 'gray');
+				$("#c4").css('background-color', 'gray');
+			});
+
+			$("#c2").hover(function() {
+				/* Stuff to do when the mouse enters the element */
+					$(".img").attr('src', 'images/css.jpg');
+					$("#c2").css('background-color', 'blue');
+ 
+ 			}, function() {
+				/* Stuff to do when the mouse leaves the element */
+				$("#c2").css('background-color', 'gray');
+				$("#c1").css('background-color', 'gray');
+				$("#c3").css('background-color', 'gray');
+				$("#c4").css('background-color', 'gray');
+
+			});
+
+			$("#c3").hover(function() {
+				/* Stuff to do when the mouse enters the element */
+				$(".img").attr('src', 'images/bs.jpg');
+				$("#c3").css('background-color', 'blue');
+			}, function() {
+
+				/* Stuff to do when the mouse leaves the element */
+				$("#c3").css('background-color', 'gray');
+				$("#c1").css('background-color', 'gray');
+				$("#c2").css('background-color', 'gray');
+				$("#c4").css('background-color', 'gray');
+			});
+
+			$("#c4").hover(function() {
+				/* Stuff to do when the mouse enters the element */
+				$(".img").attr('src', 'images/js.jpg');
+				$("#c4").css('background-color', 'blue');
+			}, function() {
+
+				/* Stuff to do when the mouse leaves the element */
+				$("#c4").css('background-color', 'gray');
+				$("#c1").css('background-color', 'gray');
+				$("#c2").css('background-color', 'gray');
+				$("#c3").css('background-color', 'gray');
+			});
+
+
+		});
+	</script>
+</body>
+</html>

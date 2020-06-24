@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Accordian</title>
+	<link rel="stylesheet" href="">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		.content
+		{
+			width: 700px;
+			height: 150px;
+			box-shadow: 10px 10px 10px gray;
+			margin: 0px auto;
+			background-color: #dff0f9;
+			text-align: center;
+			font-family: cursive;
+   			 font-size: larger;
+   			 display: none;
+		}
+		.header_part
+		{
+			width: 700px;
+			height: 50px;
+			border: 1px solid #585a73;
+			margin: 0px auto;
+			text-align: center;
+			background-color:#6f9b9e;
+			cursor: pointer;
+			color: white;
+
+
+		}
+	</style>
+</head>
+<body>
+	<div class="header_part" id="h1">
+			<h2>HTML</h2>
+	</div>
+	<div class="content" id="c1">
+			<p>HTML is the standard markup language for Web pages.
+				<br>With HTML you can create your own Website.
+				<br>HTML is easy to learn - You will enjoy it!</p>
+	</div>
+	<div class="header_part" id="h2">
+			<h2>CSS</h2>
+	</div>
+	<div class="content" id="c2">
+			<p>CSS is a language that describes the style of an HTML document.
+				<br>CSS describes how HTML elements should be displayed.
+				<br>This tutorial will teach you CSS from basic to advanced.
+			</p>
+	</div>
+	<div class="header_part" id="h3">
+			<h2>JavaScript</h2>
+	</div>
+	<div class="content" id="c3">
+			<p>JavaScript is the programming language of HTML and the Web.
+				<br>JavaScript is easy to learn.
+				<br>This tutorial will teach you JavaScript from basic to advanced.
+			</p>
+	</div>
+	<div class="header_part" id="h4">
+			<h2>JQuery</h2> 
+	</div>
+	<div class="content" id="c4">
+			<p>jQuery is a JavaScript Library.
+				<br>jQuery greatly simplifies JavaScript programming.
+				<br>jQuery is easy to learn.
+			</p>
+
+			<script type="text/javascript">
+				jQuery(document).ready(function($) {
+					$("#h1").click(function(event) {
+						/* Act on the event */
+						$("#c1").slideToggle(1000);
+						$("#c2").slideUp(1000);
+						$("#c3").slideUp(1000);
+						$("#c4").slideUp(1000);
+					});
+
+					$("#h2").click(function(event) {
+						/* Act on the event */
+						$("#c2").slideToggle(1000);
+						$("#c1").slideUp(1000);
+						$("#c3").slideUp(1000);
+						$("#c4").slideUp(1000);
+					});
+
+					$("#h3").click(function(event) {
+						/* Act on the event */
+						$("#c3").slideToggle(1000);
+						$("#c1").slideUp(1000);
+						$("#c2").slideUp(1000);
+						$("#c4").slideUp(1000);
+					});
+
+					$("#h4").click(function(event) {
+						/* Act on the event */
+						$("#c4").slideToggle(1000);
+						$("#c1").slideUp(1000);
+						$("#c2").slideUp(1000);
+						$("#c3").slideUp(1000);
+					});
+				});
+			</script>
+	</div>
+</body>
+</html>

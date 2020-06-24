@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Date_Time_Demo</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!---font Awsome Link---->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<style type="text/css">
+	.bg1
+	{
+		height:auto;
+		/* border: 2px groove #32a8eb; */
+		background-image: linear-gradient(to right,pink,purple,#32aaec);
+		border-radius: 10px;
+	}
+	.date_select
+	{
+		height:auto;
+		border: 1px solid hotpink;
+		/* background-image:linear-gradient(to right,pink,purple,#32aaec); */
+		background-color: gray;
+		border-radius: 10px;
+		
+	}
+	.bg2
+	{
+		height: 100px;
+		/* border: 1px solid black; */
+
+	}
+	.lbl
+	{
+		height: 50px;
+		/* border: 1px solid black; */
+		font-weight: bold;
+		padding-top: 5px;
+		color: #ddd5de;
+		font-size: larger;
+		font-family: serif;
+	}
+	.bg3
+	{
+		height: 80px;
+		/* border: 1px solid gray; */
+		background-color: #e6e0e0;
+		font-weight: bold;
+		font-size:3vw;
+		font-family:cursive;
+		color: #9e073a;
+		border-radius: 20px;
+		box-shadow: 5px 5px 10px gray;
+	}
+	.dot
+	{
+		height: 80px;
+		
+		font-weight: bold;
+		font-size:3vw;
+		font-family:cursive;
+		color: #e6e0e0;
+		
+	}
+	#selected_date
+	{
+		color: white;
+		text-align: center;
+		font-weight: bold;
+		color: #e6e0e0;
+	}
+	.fnt-lg
+	{
+		font-size: large;
+	}
+	.heading 
+	{
+		font-family:serif;
+		font-weight: bold;
+		text-align: center;
+		font-size: xx-large;
+		color: darkgray;
+	}
+	input[type=date]
+	{
+		border: 1px solid #9e073a;
+		border-radius: 10px;
+		box-shadow: 5px 5px 10px #9e073a;
+		font-weight: bold;
+		font-size: large;
+		font-family: cursive;
+
+	}
+	#exp_countdown
+	{
+		font-family:serif;
+		font-weight: bold;
+		text-align: center;
+		font-size: xx-large;
+		color: #74cac6;
+		
+	}
+
+
+
+</style>
+</head>
+<body>
+	
+	<div class="container">
+		<div class="row mt-5">
+			<!--------------------------->
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bg1">
+
+				<!---Selecte Date---->
+				<form action="" method="get" accept-charset="utf-8">
+					
+				<div class="row mt-5">
+					<div class="col-sm-12 col-md-4 col-lg-4">
+
+					</div>
+
+					<div class="col-sm-12 col-md-4 col-lg-4">
+						<div class="heading">
+							<p><i class="fa fa-hourglass-half"></i> COUNTDOWN <i class="fa fa-clock-o"></i></p>
+						</div>
+						<div class="form-group">
+
+							<label for="date" class="text-white font-weight-bold fnt-lg"><i class="fa fa-calendar"></i> Select Date :</label>
+
+							<input type="date" name="" value="" class="form-control" id="date_picker"><!--format yyyy-mm-dd-->
+						 	<p id="selected_date"></p>
+							<p id="sel_date"></p>
+							<p id="sel_month"></p>
+							<p id="sel_year"></p>
+					
+						</div>
+					</div>
+
+					<div class="col-sm-12 col-md-4 col-lg-4">
+					</div>
+
+				</div><!----row-->
+				</form>
+				<!--------------------------------------->
+				<div class="row mt-3">
+					<!----days------------->
+					<div class="col-sm-3 col-md-3 col-lg-3">
+						<div class="bg2 p-3">
+							<div class="bg3 text-center pt-2" id="days">
+								<!-- <p id="days"></p> -->
+							</div>
+						</div>
+						<div class="lbl">
+							<p class="text-center">Days</p>
+						</div>
+					</div>
+					<!-------------------->
+					<div class="col-sm-1 col-md-1 col-lg-1">
+						<div class="bg2 p-3">
+							<div class="text-center pt-2 dot">
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					<!----hours------------->
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<div class="bg2 p-3">
+							<div class="bg3 text-center pt-2" id="hours">
+								
+							</div>
+							<!-- <p id="hours"></p> -->
+						</div>
+						<div class="lbl">
+							<p class="text-center">Hours</p>
+						</div>
+					</div>
+					<!-------------------->
+					<div class="col-sm-1 col-md-1 col-lg-1">
+						<div class="bg2 p-3">
+							<div class="text-center pt-2 dot">
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					<!----minutes------------->
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<div class="bg2 p-3">
+							<div class="bg3 text-center pt-2" id="min">
+								
+							</div>
+							<!-- <p id="min"></p> -->
+						</div>
+						<div class="lbl">
+							<p class="text-center">Minutes</p>
+						</div>
+					</div>
+					<!-------------------->
+					<div class="col-sm-1 col-md-1 col-lg-1">
+						<div class="bg2 p-3">
+							<div class="text-center pt-2 dot">
+								
+							</div>
+							
+						</div>
+						
+					</div>
+					<!------Seconds------------->
+
+					<div class="col-sm-2 col-md-2 col-lg-2">
+						<div class="bg2 p-3">
+							<div class="bg3 text-center pt-2" id="sec">
+								
+							</div>
+							<!-- <p id="sec"></p> -->
+						</div>
+						<div class="lbl">
+							<p class="text-center">Seconds</p>
+						</div>
+					</div>
+				</div>
+				<!--------------->
+				
+
+				<p id="exp_countdown"></p>
+				
+			</div>
+		</div><!---main row complete---->
+	</div><!---main container div complete--->
+
+	<script type="text/javascript">
+		 
+		 jQuery(document).ready(function($) {
+		 	
+
+		 	page_load_time();  //first call this function to set 0 to all values when page load
+		 	
+			var sele_date;
+			var x;
+		 	
+				//countdown Date... when date selected and changed
+				$(document).on('change', '#date_picker', function(event) {
+				 		
+				 		alert("selected date is : "+$(this).val());
+				 		// var sele_date=$(this).val();
+
+				 		sele_date=new Date($(this).val().toString()); //convert selected date into date format
+
+						sele_date.getTime();
+				 		console.log(sele_date);
+						$('#selected_date').text("Selected Date is : "+(sele_date).toString());
+
+
+					x=setInterval(function(){myCountDown(sele_date);} , 1000); //call function here when new date is selected and function call after every 1 second(1 sec=1000 milliseconds)
+					//syntax:-setInterval(custom function(){},1000);
+				});
+
+			function myCountDown (sele_date) {
+				
+				var now=new Date();
+		 		now.getTime(); //return milliseconds
+		 		console.log(now);
+		 		// $('.todays_date').find('#curr_date_time').text("Current Date & Time : " +now.toString());
+				
+
+				//find the distance b/w countdown date and now
+					var distance=sele_date-now;
+					console.log(distance);
+
+				//if countdown is over
+					if(distance<=0)
+					{
+						clearInterval(x);
+						$('#exp_countdown').text("Yehh!!..CountDown is Over..!!!");
+						page_load_time(); //when countdown expired set all values as 0.
+					}
+
+					else
+					{
+						//calculation for days,hours,min,and seconds
+						var days=Math.floor(distance/(1000*60*60*24));
+						var hours=Math.floor((distance%(1000*60*60*24)) / (1000*60*60));
+						var minutes=Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+						var seconds=Math.floor((distance % (1000 * 60)) / 1000);
+
+
+						$('#days').text(days);
+						$('#hours').text(hours);
+						$('#min').text(minutes);
+						$('#sec').text(seconds);
+						$('#exp_countdown').text('');
+					}
+			}
+
+			function page_load_time (argument) {
+
+					$('#days').text(0);
+					$('#hours').text(0);
+					$('#min').text(0);
+					$('#sec').text(0);
+					$(".dot").text(':');
+			}
+					
+
+});
+
+		 	
+</script>
+
+</body>
+</html>

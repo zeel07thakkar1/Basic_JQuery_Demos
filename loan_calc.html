@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Loan Calculator</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!---font Awsome Link---->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	<style type="text/css" media="screen">
+		*
+		{
+			margin: 0px;
+			padding: 0px;
+		}
+		.bg
+		{
+			border: 3px solid  #ae285d; 
+			height:auto;
+		}
+		.bg1
+		{
+			/* border: 1px solid black; */
+			height: auto;
+			background-color: #ae285d;
+
+		}
+		.bg2
+		{
+			/* border: 1px solid red; */
+			height: auto;
+		}
+		.bg3
+		{
+			/* border: 1px solid green; */
+			height:auto;
+			background-color: #c1bfbfc4;
+			border-radius: 8px;
+		}
+		.font_design
+		{
+			font-size: x-large;
+			color: #ae285d;
+
+		}
+		.cal_emi
+		{
+			height: 300px;
+			/* background-color: gray; */
+		}
+		.brder_btm
+		{
+			border-bottom: 3px dashed #efebebc4;
+
+		}
+
+		input[type=range]::-webkit-slider-thumb
+		{
+			background-color: white;
+			border: 3px solid #ae285d;
+		}
+		 /* input[type=range]::-webkit-slider-runnable-track 
+		{
+    				background-color: #c1bfbfc4;
+    	} 
+		input[type=range]::-webkit-slider-runnable-track 
+		{
+  			background-color: #43e5f7; 
+		}
+		/*input[type=range]::-webkit-slider-upper
+		{  
+  			background-color: #9a905d;
+		} */
+		input[type=text]
+		{
+			color: #ae285d;
+			font-weight: bold;
+		}
+
+		#emi_tb
+		{
+			font-size: x-large;
+			text-align: center;
+			border: 3px solid #ae285d;
+			border-radius: 10px;
+
+			
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="container">
+		<div class="row mt-4">
+			<div class="col-sm-12 col-md-12 col-lg-8 bg">
+				<div class="row">
+					<div class=" col-sm-8 col-md-8 col-lg-8 bg2 pt-3">
+						<form action="" method="post" accept-charset="utf-8">
+							<!-------1--------->
+							<div class="row form-group brder_btm">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label for="" class="font-weight-bold">Amount(Rs.)</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input type="text" name="" value="" class="form-control" id="tb1">
+								</div>
+								<div class="col-lg-12">
+									<input type="range" min="50000" max="1500000" value="50000" class="custom-range" id="slider1">
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="position-absolute">50k</p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="text-right">15L</p>
+								</div>
+							</div>
+							<!----------------->
+							
+							<!-----2---------->
+							<div class="row form-group brder_btm">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label for=""  class="font-weight-bold">Interest Rate(p.a)</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input type="text" name="" value="" placeholder="" class="form-control" id="tb2">
+								</div>
+								<div class="col-lg-12">
+									<input type="range" min="12" max="24" value="12" class="custom-range" id="slider2" step="0.5">
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="position-absolute">12%</p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="text-right">24%</p>
+								</div>
+							</div>
+							<!----------------->
+							
+							<!-----3---------->
+							<div class="row form-group">
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<label for=""  class="font-weight-bold">Tenure (months)</label>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<input type="text" name="" value="" placeholder="" class="form-control" id="tb3">
+								</div>
+								<div class="col-lg-12">
+									<input type="range" min="12" max="60" value="12" class="custom-range" id="slider3" step="1">
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="position-absolute">12</p>
+								</div>
+								<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+									<p class="text-right">60</p>
+								</div>
+
+							</div>
+							<!----------------->
+						
+						</form>
+					</div>
+					<div class="col-sm-4 col-md-4 col-lg-4 ">
+						<div class="emi bg3 mt-5 p-2">
+							
+							<p class="text-center font-weight-bold pt-5 font_design">Equated Monthly Installments (EMI)</p>
+							<input type="text" name="" value="" class="form-control" id="emi_tb">
+
+						
+						</div>
+					</div>
+					
+				</div>
+			</div><!---main col-lg-8 complete-->
+			<!---******************************************--->
+			<div class="col-sm-12 col-md-12 col-lg-4 bg1">
+					<div class="cal_emi mt-5 pt-5">
+						<!--------1----------->
+						<div class="row form-group">
+							<div class="col-sm-6 col-md-6 col-lg-6">
+
+								<label for="p_amt" class="text-white font-weight-bold"><i class="fa fa-stop"></i> Principal Amount</label>
+								
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<input type="text" name="" value="" placeholder="" class="form-control text-center" id="p_a_tb">
+							</div>
+						</div>
+						<!--------2----------->
+						<div class="row form-group">
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<label for="p_amt" class="text-white font-weight-bold"><i class="fa fa-stop"></i> Interest Amount</label>
+								
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+
+								<input type="text" name="" value="" placeholder="" class="form-control text-center" id="tot_int_payable">
+							</div>
+						</div>
+						<!--------3----------->
+						<div class="row form-group">
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<label for="p_amt" class="text-white font-weight-bold">Total Amount Payable</label>
+								
+							</div>
+							<div class="col-sm-6 col-md-6 col-lg-6">
+								<input type="text" name="" value="" placeholder="" class="form-control text-center" id="tot_amt_pay">
+							</div>
+						</div>
+					</div>
+			</div><!--main col-lg-4 complete----->
+
+			
+		</div><!--main Row Complete---->
+		<!----testing----->
+			<p id="amt"></p>
+			<p id="int"></p>
+			<p id="months"></p>
+		<!----------------------->
+	</div><!---main container complete--->
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function($) {
+			
+			var sl1=$('#slider1'); //range1 
+			var in1=$('#tb1');	//input box1
+			in1.val(sl1.val());
+
+			var pri_amt=$('#p_a_tb'); //principal amount
+			pri_amt.val("Rs. "+sl1.val());
+
+			var total_interest_pay=$('#tot_int_payable');
+			var total_loan_amount_pay=$('#tot_amt_pay');
+
+
+			var sl2=$('#slider2');  //range2
+			var in2=$('#tb2');  //input box2
+			in2.val(sl2.val());
+			var int_final;
+
+			var sl3=$('#slider3');  //range3
+			var in3=$('#tb3');	//input box3
+			in3.val(sl3.val());
+
+			var emi_cal=$('#emi_tb');  //emi textbox
+
+
+			// var lbl_amt=$('#amt');//amount label
+			// var lbl_int_rate=$('#int'); //interest rate label
+			// var lbl_mnths=$('#months'); //months label
+
+
+		$(document).on('change', '#slider1, #slider2, #slider3', function(event) {
+				
+			//--------------Pricipal(Amt) Range----------
+					
+					in1.val(sl1.val()); //input box1 value change with slider1
+					var amt_tb=in1.val();
+
+					pri_amt.val("Rs. "+sl1.val()); //principal amt value change with slider1
+
+					// lbl_amt.text("Amount of Loan is : "+sl1.val());
+					console.log(amt_tb);
+			//---------------------------------------
+
+				
+			//--------------Intrest Rate Range---------
+					
+					in2.val(sl2.val()); //input box2 value change with slider2
+					var interest_tb=in2.val();
+					console.log(interest_tb);
+			//---------------------------------------
+
+			//-------------Months Range----------------
+							
+					in3.val(sl3.val());
+					var months_tb=in3.val();
+					console.log("Number of months are :"+months_tb);
+
+					// lbl_mnths.text("No. of Months are : "+sl3.val());
+
+
+			//---------------EMI calculation----------------------
+
+					//formula of EMI:   		((1+r)^n) 
+						//				(p*r) *  ------------
+						//						((1+r)^n) -1)
+
+						//  r = [(r/100)/12]
+
+						var interest = (interest_tb/100); //int devided by 100 b'coz it give in % so..
+						interest_final=(interest/12); //int devide by 12 b'coz it give in per annum so...
+						
+						var precision_interest_final=interest_final.toPrecision(2);
+
+						console.log(precision_interest_final);
+						// lbl_int_rate.text("Int. Rate is : "+precision_interest_final);
+
+
+						var b=(amt_tb*interest_final); //(p*r)
+
+						var c=(Number(1)+Number(precision_interest_final)); //(1+r)
+						var d=Math.pow(c,months_tb); //[(1+r)^n]
+
+						final_emi=Math.floor(b*(d/(d-1)));
+
+						console.log("p*r : "+b);
+						console.log("1+r:" +c);
+						console.log("using power : "+d);
+						console.log("final EMI is : "+final_emi);
+						
+						
+						emi_cal.val("Rs. "+final_emi); //store value of final EMI in textbox
+
+						var e=(final_emi*months_tb)-amt_tb; //total interest pay=(final_emi*n)
+
+						total_interest_pay.val("Rs. "+e); //assign that value to textbox
+						
+
+						var loan_tot=(e+Number(amt_tb));  //(principan amt + total int payable)
+						console.log(loan_tot);
+						total_loan_amount_pay.val("Rs. "+loan_tot); //assign that value to textbox
+						
+
+
+						
+					
+			});
+
+			
+		});
+	</script>
+</body>
+</html>

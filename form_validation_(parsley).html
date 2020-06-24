@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Form validation</title>
+	<link rel="stylesheet" href="">
+	
+	
+	<!-------------------------------------->
+	
+	<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<!-- <link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css"> -->
+
+
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!----------------parsley js include here--------------->
+	<script src="parsley_js_css_files/parsley.min.js"></script>
+	<link rel="stylesheet" href="parsley_js_css_files/parsley.css">
+
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<!----font Awsome Link----->
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+<style type="text/css">
+	.bg1
+	{
+		border: 1px solid black;
+		height: auto;
+	}
+	
+</style>
+</head>
+<body>
+	
+	<div class="container bg1 mt-3">
+
+		<!-- <div class="bs-callout bs-callout-warning hidden">
+			<p>This form seems to be invalid..!!</p>
+		</div>
+
+		<div class="bs-callout bs-callout-info hidden">
+			<p>Everything seems to be Ok...!!!</p>
+		</div> -->
+		
+			<form method="get" accept-charset="utf-8" data-parsley-validate id="myform">
+
+				<div class="form-group mt-3">
+					
+						<label for="f_name">First Name</label>
+						<input type="text" name="" value="" class="form-control" required="">
+				</div>
+				<div class="form-group">
+
+						<label for="email">E-mail</label>
+						<input type="email" name="" value="" class="form-control" data-parsley-trigger="change" required="">
+				</div>
+				<div class="form-group">
+						
+						<label for="Contact_Method">Preferred Contact Method : </label>
+						<input type="radio" name="Contact_Method" value="email" required="">Email
+						<input type="radio" name="Contact_Method" value="phone" placeholder="" required="">Phone
+				</div>
+				<div class="form-group">
+
+						<label for="hobbies">Hobbies : </label>
+						<input type="checkbox" name="" value="ski" data-parsley-mincheck="2">Skiing
+						<input type="checkbox" name="hobbies" value="run">Running
+						<input type="checkbox" name="hobbies" value="eat">Eating
+						<input type="checkbox" name="hobbies" value="sleep">Sleeping
+						<input type="checkbox" name="hobbies" value="read">Reading
+						<input type="checkbox" name="hobbies" value="code">Coding
+				</div>
+				<div class="form-group">
+					<label for="heard">Heard About us Via : </label>
+					<select name="heard" class="form-control" required="">
+						<option value="">Choose..</option>
+						<option value="Press">Press</option>
+						<option value="Internet">Internet</option>
+						<option value="Word of Mouth">Word of Mouth</option>
+						<option value="Other">Other...</option>
+					</select>
+				</div>	
+				<div class="form-group">
+					<label for="txt_msg">Message</label>
+					<textarea name="msg" class="form-control" rows="5" data-parsley-trigger="keyup" data-parsley-minlength="10" data-parsley-maxlength="100" data-parsley-minlength-message="Come on! You need to enter at least a 20 character comment.."></textarea>
+				</div>
+				<div class="form-group">
+					<input type="submit" class="btn btn-primary" value="SUBMIT">
+				</div>
+
+			</form>
+		
+	</div>
+
+	<script type="text/javascript">
+
+		jQuery(document).ready(function($) {
+			$('#myform').parsley();
+
+			
+
+		});
+
+	</script>
+	
+</body>
+</html>

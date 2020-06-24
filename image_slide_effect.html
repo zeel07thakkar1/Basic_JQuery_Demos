@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Image effects</title>
+	<link rel="stylesheet" href="">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<style type="text/css">
+		.box
+		{
+			width: 400px;
+			height: 400px;
+			border: 1px solid black;
+			cursor: pointer;
+			background-image: url('images/img_avatar.png');
+			background-size: contain;
+			
+		}
+		
+		
+		.btn
+		{
+			height: 40px;
+			width:auto;
+			border: none;
+			margin-top: 20px;
+			margin-left:10px;
+			background-color:#38738a;
+			color: white;
+			font-weight: bold;
+			cursor: pointer;
+			
+		}
+		
+	</style>
+</head>
+<body>
+	<marquee style="width: 400px"><h1 style="color:#a458a2">Try out Some Image Effects......!!!!</h1></marquee>
+	<div class="box"></div>
+
+
+	<button type="button" class="btn" id="btn1">Blur Image</button>
+	<button type="button" class="btn" id="btn2">Black & White Image</button>
+	<button type="button" class="btn" id="btn3">Negative Image</button>
+	<button type="button" class="btn" id="btn4">Bright Image</button>
+	<button type="button" class="btn" id="btn5">Contrast Image</button>
+	<button type="button" class="btn" id="btn6">Sepia Image</button>
+	<button type="button" class="btn" id="btn7">Hue-Rotate Image</button>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+
+				$("#btn1").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'blur(10px)');
+				});
+
+				$("#btn2").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'grayscale(1)');
+				});
+
+				$("#btn3").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'invert(1)');
+				});
+
+				$("#btn4").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'brightness(2)');
+				});
+
+				$("#btn5").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'Contrast(10)');
+				});
+
+				$("#btn6").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'sepia(1)');
+				});
+
+				$("#btn7").click(function(event) {
+					/* Act on the event */
+					$(".box").css('filter', 'Hue-Rotate(90deg)');
+				});
+});
+	</script>
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Parsley Validation Form</title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		.bg1
+		{
+			border-left: 5px solid blue;
+			border-radius: 5px;
+			box-shadow: 5px 5px 5px gray;
+		}
+	</style>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+<!--parsley files----->
+	<script src="parsley_js_css_files/parsley.min.js"></script>
+	<link rel="stylesheet" href="https://parsleyjs.org/src/parsley.css">
+<!------------------->
+
+</head>
+<body>
+	<div class="container bg1 mt-4 pb-3">
+		<form action="#" method="get" id="myform" data-parsley-validate="">
+			<div class="form-group">
+				<label for="palindrom">Palindrom Number</label>
+				<input type="text" name="" value="" class="form-control" data-parsley-palindrome="" required="">
+				<br>
+				<label for="multiple">Multiple of 3</label>
+				<input type="text" name="" value="" placeholder="" class="form-control" required="" data-parsley-multiple-of="3">
+				<br>
+				<input type="submit" value="SUBMIT" class="btn btn-outline-info">
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		jQuery(document).ready(function($) {
+			$('#myform').parsley();
+
+
+			//check number is palindrome or not
+			window.Parsley.addValidator('palindrome', {
+		  validateString: function(value) {
+		    return value.split('').reverse().join('') === value;
+		  },
+		  messages: {
+		    en: 'This string is not the reverse of itself'
+		   
+		  }
+		});		
+
+			//check number is multiple of 3
+			window.Parsley.addValidator('multipleOf', {
+		  	validateNumber: function(value, requirement) {
+		    return value % requirement === 0;
+		  },
+		  	requirementType: 'integer',
+		  	messages: {
+		    	en: 'This value should be a multiple of %s.'
+		    	
+		  }
+		});
+
+			
+		});
+	</script>
+
+</body>
+</html>

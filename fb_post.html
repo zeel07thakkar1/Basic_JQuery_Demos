@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>FB Posts</title>
+	<link rel="stylesheet" href="fb_post.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!----font Awsome Link Add Here----------------->
+	<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	
+</head>
+<body>
+<!-------------------------------------->
+<div style="width: 100%;height: auto">
+	<div class="write_post">
+		<br><br>
+		<form action="" method="get" id="myfrm">
+			<input type="text" name="" placeholder="Post title..." class="txt_area" id="pos_tit" style="width:373px;height: 40px;">
+				
+				<textarea name="post" cols="50" rows="10" class="txt_area" id="txt" placeholder="Write your post here..."></textarea><br><br>
+				<button type="button" class="share_btn">Share Post <i class="fa fa-share-square-o"></i></button>
+		</form>
+		
+	</div>
+</div>
+<!------------------------------------------->
+
+<div class="main_post">
+	<h2><i class="fa fa-thumbs-o-up"></i> Posts <i class="fa fa-thumbs-o-down"></i></h2>
+	<hr style="margin:0px">
+	<div class="post">
+			<!----post1------->
+			<div class="post1">
+				<!---post Title---->
+				<div class="post_title">
+					<p> </p>
+				</div>
+
+				<!---post content---->
+				<div class="post_content">
+					<p> </p>
+				</div>
+
+				<!--footer--->
+				<div class="post_footer" >
+					<div class="post_likes">
+						<button type="button" class="btn_likes">Like <i class="fa fa-thumbs-o-up"></i></button>
+						<button type="button" class="btn_likes">Dislike <i class="fa fa-thumbs-o-down"></i></button>
+						<button type="button" class="btn_likes" id="remove_post">Remove Post
+							<i class="fa fa-times"></i></button>
+					</div>
+					<div class="post_date">
+						<p class="date"></p>
+					</div>
+				</div>
+				
+				<!--comment section--->
+				<div class="main_comments_div">
+					<div class="comments_section">
+						<p class="p_div">
+							<button type="button" class="reply_btn">Give Reply <i class="fa fa-plus-circle"></i></button>
+							<button type="button" class="reply_btn del_cmt"><i class="fa fa-times"></i></button>
+
+							<!--reply Section of post----->
+							<div class="main_reply_section">
+								<div class="post_reply_section">
+									<h4>
+										<button type="button" class="reply_btn del_reply"><i class="fa fa-times"></i></button>
+									</h4>
+
+								</div>
+								<div class="post_reply">
+					
+									<input type="text" name="" value="" placeholder="Add Reply..." id="reply_tb">
+									<button type="button" class="reply_btn post_reply_btn" style="margin-top: 0px;">Post Reply <i class="fa fa-check-square"></i></button>
+								</div>
+							</div>
+							<!---------------->
+						</p>
+					</div>
+					<div class="post_cment">
+					
+						<input type="text" name="" value="" placeholder="Add Comment" id="cmt_text">
+						<button type="button" class="btn_likes post_cmt_btn" style="margin-top: 0px;">Post <i class="fa fa-comment"></i></button>
+					</div>
+				
+				</div><!---main comment section complete---->
+			
+
+			</div><!-----post1 div complete--->
+	</div><!----post div complete---->
+</div>
+
+
+<script type="text/javascript">
+	jQuery(document).ready(function($) {
+
+		//remove particular post on btn click
+		 $(document).on('click', '#remove_post', function(event) {
+			
+			var par=$(this).parentsUntil('.post');
+			par.remove();
+		});
+
+
+		 //post comment on particular post on button click
+		$(document).on('click', '.post_cmt_btn', function(event) {
+			
+			var par=$(this).parentsUntil('.post');
+			var comment=par.find('#cmt_text').val();
+
+			var new_comment=par.find('.comments_section p:first').clone();
+
+			var new_reply_btn=par.find('.comments_section .reply_btn:first').clone();
+			var new_delete_cmt=par.find('.comments_section .del_cmt:first').clone();
+
+			// var new_reply_post_btn=par.find('.main_reply_section .post_reply_btn');
+			// var reply_post=par.find('.comments_section .post_reply:first').clone();
+			var post_reply_div=par.find('.comments_section .main_reply_section:first').clone();
+			par.find('.comments_section').append(new_comment);
+			console.log(comment);
+			var bb=par.find('.comments_section p:last').text(comment);
+
+
+			bb.append(new_reply_btn);
+			bb.append(new_delete_cmt);
+			bb.append(post_reply_div);
+			par.find('#cmt_text').val('');
+
+		});
+
+			//slide toggle post_reply div  [textbox and button] on btn click
+			$(document).on('click', '.reply_btn', function(event) {
+				var par1=$(this).parents('.p_div');
+				
+				var par_reply=par1.find('.post_reply');
+				par_reply.slideToggle(500);
+			 });
+
+			//delete particular Comment
+			$(document).on('click', '.del_cmt', function(event) {
+				var par1=$(this).parents('.p_div');
+				
+				par1.remove();
+			});
+
+
+			//give reply on particular comment on btn click
+			$(document).on('click', '.post_reply_btn', function(event) {
+					
+				var par2=$(this).parents('.main_reply_section');
+				
+			 	var reply=par2.find('#reply_tb').val();
+			 	console.log(reply);
+			 	var reply_del_btn=par2.find('.post_reply_section .del_reply:first').clone();
+			 	var new_reply=par2.find('.post_reply_section h4:first').clone();
+
+			 	par2.find('.post_reply_section').append(new_reply);
+			 	var cc=par2.find('.post_reply_section h4:last').text(reply);
+			 	cc.append(reply_del_btn);
+			 	par2.find('#reply_tb').val('');
+			
+			  });
+
+
+			//particular reply which is give on post is delete on btn click
+			$(document).on('click', '.del_reply', function(event) {
+				var par2=$(this).parentsUntil('.post_reply_section');
+				par2.remove();
+				
+			});
+
+
+			//post is posted in main_post div on btn click
+			$(document).on('click', '.share_btn', function(event) {
+				
+				//checking input fields are empty or not...
+				if($('#pos_tit').val()=='')
+				{
+					alert("Please Enter Post Title..!!!");
+				}
+				 if($('#txt').val()=='')
+				{
+					alert("Please Enter Post Content..!!!");
+					
+				}
+				if(!$('#txt').val()=='' && !$('#pos_tit').val()=='')
+				{
+					var new_post= $(".main_post .post .post1:first").clone();
+					$('.main_post .post').append(new_post);
+					add_post();
+				}
+				
+			});
+		
+
+		function add_post (argument) {
+					// body... 
+					var d=new Date();
+					var post_title1=$("#pos_tit").val();
+					var post_content1=$("#txt").val();
+					console.log("titile:"+post_title1);
+					console.log("content:"+post_content1);
+
+					$(".post_title p:last").text(post_title1);
+					$(".post_content p:last").text(post_content1);
+					$(".post_date p:last").text(d.toDateString());
+
+
+					var footer=$('.post_footer:last').find('.post_date, .post_likes');
+					$('.post_footer:last').append(footer);
+					var post_comment1=$('.main_comments_div:last').find('.comments_section, .post_cment');
+					$('.main_comments_div:last').append(post_comment1);
+					
+
+					$(".post_tit").val('');
+					$(".txt_area").val('');
+
+					return;
+				
+				}
+			});
+</script>
+
+</body>
+</html>
